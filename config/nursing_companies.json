@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-03-11",
+    "description": "护理岗位聚合 - 阿省医疗、家庭照护、养老院入口岗位配置",
+    "target": "国内20年护士经验，开放工签，阿省RN未注册，英语暂不能沟通；先找低语言入口，HCA过渡，RN长期"
+  },
+
+  "p0_companies": [
+    {
+      "id": "ahs",
+      "name": "Alberta Health Services",
+      "platform": "ahs",
+      "careers_url": "https://careers.albertahealthservices.ca",
+      "tier": "P0",
+      "notes": "Alberta最大医疗雇主。当前英语不能沟通时，AHS岗位多为过渡/长期目标，不作为唯一入口",
+      "status": "active"
+    },
+    {
+      "id": "covenantHealth",
+      "name": "Covenant Health",
+      "platform": "covenant",
+      "careers_url": "https://careers.covenanthealth.ca",
+      "tier": "P0",
+      "notes": "Edmonton天主教医疗系统，多家医院。与AHS共享Taleo后端",
+      "status": "active"
+    },
+    {
+      "id": "jobbank",
+      "name": "Job Bank Canada",
+      "platform": "jobbank",
+      "careers_url": "https://www.jobbank.gc.ca",
+      "tier": "P0",
+      "notes": "加拿大政府官方招聘平台；同时抓 caregiver/home support/dietary aide/housekeeping 等现实入口",
+      "status": "active"
+    }
+  ],
+
+  "p1_companies": [
+    {
+      "id": "indeed",
+      "name": "Indeed Canada",
+      "platform": "indeed",
+      "careers_url": "https://ca.indeed.com",
+      "tier": "P1",
+      "notes": "最大聚合平台，需要处理反爬",
+      "status": "pending"
+    },
+    {
+      "id": "capitalcare",
+      "name": "CapitalCare",
+      "platform": "custom",
+      "careers_url": "https://www.capitalcare.net/careers",
+      "tier": "P1",
+      "notes": "Edmonton长期护理机构",
+      "status": "pending"
+    },
+    {
+      "id": "extendicare",
+      "name": "Extendicare",
+      "platform": "custom",
+      "careers_url": "https://www.extendicare.com/careers",
+      "tier": "P1",
+      "notes": "全国性长期护理连锁",
+      "status": "pending"
+    }
+  ]
+}

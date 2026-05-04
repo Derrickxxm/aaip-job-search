@@ -1,0 +1,283 @@
+# 定时任务配置（小时）
+schedule:
+  hours: [8, 12, 18]  # 早8点、中午12点、晚6点
+
+# 本地存储配置
+storage:
+  vault_dir: /Users/xxm/projects/QuantEngine_markdown_file/12-找工作  # MD文件存储目录
+
+# 调试模式（临时开启，测试完改为false）
+debug:
+  enabled: true  # 开启详细调试输出
+
+# 地点过滤（扩展到全加拿大工签友好地区）
+location_filter:
+  # AB省 (Alberta) - 核心目标
+  - Calgary, Alberta
+  - Calgary, AB
+  - Edmonton, Alberta
+  - Edmonton, AB
+  - Alberta, Canada
+  # ON省 (Ontario)
+  - Toronto, Ontario
+  - Toronto, ON
+  - Ottawa, Ontario
+  - Ottawa, ON
+  - Ontario, Canada
+  - Mississauga
+  - Waterloo
+  - Kitchener
+  # BC省 (British Columbia)
+  - Vancouver, British Columbia
+  - Vancouver, BC
+  - Victoria, British Columbia
+  - Victoria, BC
+  - British Columbia, Canada
+  # QC省 (Quebec)
+  - Montreal, Quebec
+  - Montreal, QC
+  - Quebec, Canada
+  # AB省城市简写（兼容 Lever/Ashby 等非标准格式）
+  - Edmonton
+  - Calgary
+  - Sherwood Park
+  # 远程和通用
+  - Canada, Remote
+  - Remote, Canada
+  - Remote Canada
+  - Canada
+  - Unknown  # 临时：允许未知地点
+
+# 技术栈关键词（只放精准技术/领域词，不放 Engineer/Developer/Technical/Solutions 这类泛词）
+tech_keywords:
+  - Java
+  - Spring
+  - Python
+  - Backend
+  - Platform
+  - Distributed
+  - Microservice
+  - API
+  - ML
+  - DevOps
+  - SRE
+  - AI
+  - Cloud
+  - AWS
+  - Kubernetes
+  - Automation
+  - Fullstack
+  - Full Stack
+  - Node.js
+  - Kotlin
+  - Ruby
+  - Rails
+  - Payments
+  - FinTech
+  - Infrastructure
+  - Developer Experience
+
+# 强岗位词：标题命中即可进入IT主投池
+strong_role_keywords:
+  - Software Developer
+  - Software Engineer
+  - Software Engineering
+  - SWE
+  - Sr SWE
+  - Technology Developer
+  - Backend Developer
+  - Backend Engineer
+  - Java Developer
+  - Java Engineer
+  - Full Stack Developer
+  - Full Stack Engineer
+  - Fullstack Developer
+  - Fullstack Engineer
+  - Platform Engineer
+  - DevOps Engineer
+  - Site Reliability Engineer
+  - SRE
+  - Data Engineer
+  - AI Engineer
+  - ML Engineer
+  - Machine Learning Engineer
+  - Staff Developer
+  - Staff Software Engineer
+  - Principal Software Engineer
+  - Software Development
+  - Engineering Manager
+  - Director, Software Development
+  - Data Architect
+  - AI Architect
+  - Database Reliability Engineer
+  - QA Automation
+  - Automation Tester
+
+# 弱岗位词：必须同时命中工程锚点或目标领域，避免泛IT/销售/产品岗位混入
+weak_role_keywords:
+  - Engineer
+  - Developer
+  - Architect
+  - Manager
+  - Director
+  - Lead
+  - Tester
+
+domain_keywords:
+  - Java
+  - Spring
+  - Backend
+  - API
+  - Microservice
+  - Platform
+  - Cloud
+  - DevOps
+  - SRE
+  - Kubernetes
+  - AWS
+  - Data Engineer
+  - AI
+  - ML
+  - Payments
+  - FinTech
+  - Infrastructure
+  - Developer Experience
+  - Automation
+  - Full Stack
+  - Fullstack
+  - Node.js
+  - Python
+  - Kotlin
+  - Ruby
+
+# 无高级级别词但仍可投的基础工程岗位
+baseline_role_keywords:
+  - Software Developer
+  - Software Engineer
+  - Software Engineering
+  - SWE
+  - Technology Developer
+  - Backend Developer
+  - Backend Engineer
+  - Java Developer
+  - Full Stack Developer
+  - Full Stack Engineer
+  - Fullstack Developer
+  - Fullstack Engineer
+  - Platform Engineer
+  - DevOps Engineer
+  - Site Reliability Engineer
+  - Data Engineer
+  - QA Automation
+  - Automation Tester
+
+# 非主攻方向：泛IT、桌面支持、help desk、网络/系统管理员
+generic_it_role_keywords:
+  - IT Engineer
+  - IT Technician
+  - Help Desk
+  - Service Desk
+  - Desktop Support
+  - Technical Support
+  - Systems Administrator
+  - System Administrator
+  - Network Administrator
+  - Network Engineer
+  - Infrastructure Support
+
+# 客户/销售导向岗位：除非标题同时包含明确工程锚点，否则从IT主投报告中排除
+customer_facing_role_keywords:
+  - technical account
+  - account management
+  - customer success
+  - pre-sales
+  - presales
+  - sales engineer
+  - go to market
+  - go-to-market
+  - solutions engineer
+  - solutions engineering
+  - solution engineer
+  - segment solutions
+  - implementation consultant
+  - professional services
+  - product manager
+  - technical product manager
+  - business applications
+  - adoption lead
+  - sales
+  - account executive
+
+engineering_anchor_keywords:
+  - software
+  - developer
+  - backend
+  - full stack
+  - fullstack
+  - platform
+  - devops
+  - sre
+  - data engineer
+  - machine learning
+  - ai engineer
+
+# 岗位级别关键词
+level_keywords:
+  - Senior
+  - Staff
+  - Lead
+  - Principal
+  - Director
+  - Architect
+  - Manager
+  - Intermediate
+
+# 排除关键词
+exclude_keywords:
+  - contract
+  - contractor
+  - hourly
+  - internship
+  - co-op
+  - associate
+  - junior
+  - new graduate
+  - graduate
+  - intern
+  - student
+  - coordinator
+  - product manager
+  - technical product manager
+  - product owner
+  - business analyst
+  - data operations
+  - operations specialist
+  - data scientist
+  - applied researcher
+  - adoption lead
+
+# 请求配置
+request:
+  timeout: 10
+  user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+
+# Gmail 邮件抓取配置
+gmail:
+  credentials_path: config/gmail_credentials.json
+  token_path: config/gmail_token.json
+  fetch_days: 1
+  linkedin_senders:
+    - "@linkedin.com"
+    - "@e.linkedin.com"
+  job_keywords:
+    - interview
+    - offer
+    - application
+    - hiring
+    - opportunity
+
+# 本地/Codex 处理配置。保留 translation 节点名兼容旧代码。
+translation:
+  provider: codex
+  model: local-rule
+  api_key_env: ""

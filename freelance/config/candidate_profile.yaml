@@ -1,0 +1,30 @@
+name: "[公司名称]"
+entity_type: "Canadian Corporation"
+experience_years: 16
+
+core_skills:
+  - Java 后端架构（16年）
+  - Python + Pandas
+  - 分布式系统
+  - 高并发 / 高性能系统
+  - 支付系统
+
+advanced_skills:
+  - 量化交易系统（crypto）
+  - 数据管道（Data Pipeline）
+  - AI / LLM 集成（OpenAI, Codex）
+  - 自动化系统
+  - FastAPI / Spring Boot
+
+preferred_projects:
+  - AI 自动化
+  - ChatGPT / LLM 集成
+  - 后端系统开发
+  - 交易系统 / 量化相关
+  - 数据工程
+
+portfolio_highlights:
+  - "Built a high-frequency crypto trading system processing 10K+ orders/sec"
+  - "Designed distributed payment platform handling $50M+ annual transactions"
+  - "Developed AI-powered automation pipeline integrating OpenAI APIs"
+  - "Architected microservices backend serving 1M+ daily active users"

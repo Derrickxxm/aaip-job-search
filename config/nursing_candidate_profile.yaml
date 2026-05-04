@@ -1,0 +1,43 @@
+# 护理候选人当前事实档案
+# 这个文件用于后续过滤器判断“现在能不能主投”，不要把长期目标误判成当前机会。
+
+candidate:
+  work_permit:
+    type: open_work_permit
+    health_services_restriction: unknown
+    action_required: "检查工签纸面是否有 health services / child care 限制；如有，先体检并申请移除。"
+
+  alberta_license:
+    rn_practice_permit: false
+    lpn_practice_permit: false
+    hca_clha_status: unknown
+
+  us_california_rn:
+    in_progress: true
+    nclex_passed: unknown
+    note: "美国加州RN/NCLEX对中长期阿省RN路径有价值，但不等于当前拥有阿省RN执业许可。"
+
+  english:
+    can_communicate_at_work: false
+    formal_score: none
+    current_strategy: "先练照护场景基础沟通，再推进HCA/CLHA和正规医疗系统岗位。"
+
+  current_target_roles:
+    primary:
+      - caregiver
+      - companion
+      - home support
+      - senior support
+      - housekeeping
+      - laundry
+      - dietary aide
+      - kitchen aide
+    transition:
+      - health care aide
+      - home care
+      - continuing care
+    hold_until_license:
+      - registered nurse
+      - licensed practical nurse
+      - graduate nurse
+      - assistant head nurse

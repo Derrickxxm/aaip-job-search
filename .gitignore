@@ -1,0 +1,39 @@
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+.ms-playwright/
+.claude/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+logs/*.log
+*.log
+
+# Storage (可选，如果不想跟踪历史数据）
+storage/*.json
+storage/*.bak
+storage/*.bak*
+freelance/storage/*.json
+
+# Local resumes / private documents
+Profile*.pdf
+
+# Vault (MD报告，通常不需要提交）
+# /Users/xxm/projects/QuantEngine_markdown_file/*.md

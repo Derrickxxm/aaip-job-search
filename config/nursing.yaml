@@ -1,0 +1,170 @@
+# 护理岗位配置
+# 目标：国内20年护士经验，开放工签，阿省RN未注册，英语暂不能沟通。
+# 策略：只保留当前效率最高路径：医疗系统支持岗先进去，HCA作为过渡目标。
+
+schedule:
+  hours: [8, 12, 18]
+
+storage:
+  vault_dir: /Users/xxm/projects/QuantEngine_markdown_file/12-找工作/nursing
+
+debug:
+  enabled: true
+
+# 地点过滤（仅 Alberta）
+# Job Bank 格式："City (AB)"，AHS 格式："Edmonton Zone, Edmonton, ..."
+location_filter:
+  - edmonton
+  - calgary
+  - red deer
+  - lethbridge
+  - medicine hat
+  - grande prairie
+  - fort mcmurray
+  - airdrie
+  - spruce grove
+  - st. albert
+  - sherwood park
+  - banff
+  - canmore
+  - alberta
+  - (ab)
+  # AHS 格式
+  - zone
+
+# 职位关键词（护理/医疗相关）
+# 匹配逻辑：title 中包含任一关键词
+tech_keywords:
+  # 核心护理岗
+  - nurse
+  - nursing
+  - rn
+  - lpn
+  - rpn
+  # 无RN也能做的岗位
+  - health care aide
+  - healthcare aide
+  - hca
+  - patient care
+  - care aide
+  - personal support worker
+  - psw
+  - continuing care
+  - care assistant
+  - nursing attendant
+  - patient attendant
+  # 当前最佳入口：医疗系统支持岗
+  - service worker
+  - porter
+  - portering
+  - environmental services
+  - linen
+  - laundry
+  - laundry aide
+  - dietary aide
+  - kitchen helper
+  - food service
+  - support service
+  - medical device reprocessing
+  - surgical processor
+  # 正规机构照护，作为HCA过渡
+  - personal support worker
+  - home support worker
+  # 她的专科方向（高薪）
+  - cardiac
+  - cardiovascular
+  - vascular
+  - surgical
+  - operating room
+  - perioperative
+  - interventional
+  - cath lab
+  - catheterization
+  - endoscopy
+  # 医疗通用
+  - clinical
+  - medical
+  - hospital
+  - acute care
+  - critical care
+  - icu
+  - emergency
+
+# 级别关键词 - 护理岗不严格按级别，放宽匹配
+# 改为：只要包含任何常见职位等级词即可
+level_keywords:
+  # 基础级别（都接受）
+  - i
+  - ii
+  - iii
+  - iv
+  - "1"
+  - "2"
+  - "3"
+  - aide
+  - assistant
+  - attendant
+  - worker
+  - helper
+  - porter
+  - service
+  - laundry
+  - dietary
+  - kitchen
+  # 专业级别
+  - registered
+  - licensed
+  - certified
+  - senior
+  - lead
+  - charge
+  - manager
+  - coordinator
+  - educator
+  - specialist
+  - practitioner
+  - clinical
+  # 通配 - 确保大多数护理岗能通过
+  - nurse
+  - nursing
+  - care
+  - health
+  - patient
+  - medical
+  - surgical
+  - full-time
+  - full time
+  - part-time
+  - part time
+  - casual
+  - temporary
+  - permanent
+
+# 排除关键词
+exclude_keywords:
+  - veterinary
+  - vet tech
+  - dental hygienist
+  - pharmacy technician
+  - volunteer
+  - unpaid
+  - nurse practitioner  # NP需要硕士学位，暂时排除
+  - child caregiver
+  - live-in caregiver
+  - family caregiver
+  - nanny
+  - babysitter
+  - private household
+  - hotel housekeeper
+  - house cleaner
+  - window cleaner
+  - office cleaner
+  - fast-food
+  - food counter attendant
+  - barista
+  - dishwasher
+
+# 请求配置
+request:
+  timeout: 15
+  user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36

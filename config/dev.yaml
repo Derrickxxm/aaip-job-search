@@ -1,0 +1,56 @@
+# 定时任务配置（小时）
+schedule:
+  hours: [8, 12, 18]  # 早8点、中午12点、晚6点
+
+# 本地存储配置
+storage:
+  vault_dir: /Users/xxm/projects/QuantEngine_markdown_file/12-找工作  # MD文件存储目录
+
+# 地点过滤（接受的城市）
+location_filter:
+  - Calgary, Alberta
+  - Edmonton, Alberta
+  - Alberta, Canada
+  - Canada, Remote
+  - Toronto, Ontario
+  - Vancouver, British Columbia
+
+# 技术栈关键词
+tech_keywords:
+  - Java
+  - Python
+  - Backend
+  - Software
+  - Platform
+  - Engineer
+  - Developer
+  - Data
+  - ML
+  - DevOps
+
+# 岗位级别关键词
+level_keywords:
+  - Senior
+  - Staff
+  - Lead
+  - Principal
+  - Director
+  - Architect
+  - Manager
+  - Product Owner
+
+# 排除关键词
+exclude_keywords:
+  - contract
+  - contractor
+  - hourly
+  - internship
+  - junior
+  - intern
+  - student
+  - coordinator
+
+# 请求配置
+request:
+  timeout: 10
+  user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36

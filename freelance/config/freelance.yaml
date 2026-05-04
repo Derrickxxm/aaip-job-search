@@ -1,0 +1,152 @@
+schedule:
+  interval_hours: 6
+  hours: [2, 8, 14, 20]
+
+platforms:
+  remoteok:
+    enabled: true
+    url: https://remoteok.com/api
+  weworkremotely:
+    enabled: true
+    feeds:
+      - https://weworkremotely.com/categories/remote-programming-jobs.rss
+      - https://weworkremotely.com/categories/remote-back-end-programming-jobs.rss
+      - https://weworkremotely.com/categories/remote-devops-sysadmin-jobs.rss
+  freelancer:
+    enabled: false
+    url: https://www.freelancer.com/api/projects/0.1/projects/active/
+  contra:
+    enabled: false
+
+filter:
+  strong_keywords:
+    # Languages
+    - python
+    - java
+    - golang
+    - go lang
+    - javascript
+    - typescript
+    - node.js
+    - nodejs
+    - react
+    - vue
+    # Backend
+    - backend
+    - back-end
+    - back end
+    - api
+    - fastapi
+    - spring boot
+    - spring
+    - django
+    - flask
+    - express
+    - microservice
+    - distributed
+    # Database
+    - postgresql
+    - postgres
+    - mysql
+    - mongodb
+    - redis
+    - elasticsearch
+    - database
+    - sql
+    - nosql
+    - dynamodb
+    - cassandra
+    # DevOps & K8s
+    - devops
+    - kubernetes
+    - k8s
+    - docker
+    - terraform
+    - ansible
+    - jenkins
+    - ci/cd
+    - cicd
+    - aws
+    - azure
+    - gcp
+    - cloud
+    - infrastructure
+    - sre
+    - site reliability
+    # AI & ML
+    - openai
+    - llm
+    - chatgpt
+    - ai
+    - machine learning
+    - deep learning
+    - nlp
+    - computer vision
+    - generative ai
+    - langchain
+    - rag
+    - automation
+    # Domain
+    - trading
+    - crypto
+    - data pipeline
+    - data engineer
+    - payment
+    - fintech
+    - full stack
+    - fullstack
+
+  exclude_keywords:
+    - junior
+    - intern
+    - internship
+    - entry level
+    - entry-level
+    - wordpress
+    - shopify theme
+    - data entry
+    - virtual assistant
+    - customer service
+    - graphic design
+    - video editing
+    - social media manager
+
+  min_keyword_matches: 2
+  min_hourly_rate: 30
+  min_project_budget: 2000
+
+scoring:
+  provider: codex
+  model: local-rule
+  api_key_env: ""
+  rule_score_threshold: 40
+  max_llm_per_run: 30
+
+proposal:
+  provider: codex
+  model: local-template
+  api_key_env: ""
+  min_score_to_generate: 60
+  max_proposals_per_run: 10
+
+output:
+  vault_dir: /Users/xxm/projects/QuantEngine_markdown_file/12-找工作
+  filename_prefix: "远程项目"
+
+notification:
+  telegram:
+    enabled: false
+    bot_token_env: TELEGRAM_BOT_TOKEN
+    chat_id_env: TELEGRAM_CHAT_ID
+  email:
+    enabled: false
+
+storage:
+  path: freelance/storage/freelance_projects.json
+
+request:
+  timeout: 15
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+
+debug:
+  enabled: true
