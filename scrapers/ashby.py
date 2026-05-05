@@ -195,8 +195,8 @@ class AshbyScraper(BaseScraper):
                     continue
 
                 title = (posting.get('title') or '').strip()
-                job_id = posting.get('jobId') or posting.get('id')
-                if not title or not job_id:
+                posting_id = posting.get('id')
+                if not title or not posting_id:
                     continue
 
                 location = (
@@ -226,7 +226,7 @@ class AshbyScraper(BaseScraper):
                     title=title,
                     company=self.company_name,
                     location=location,
-                    url=f'https://jobs.ashbyhq.com/{slug}/{job_id}',
+                    url=f'https://jobs.ashbyhq.com/{slug}/{posting_id}',
                     platform='Ashby',
                     scraped_at=datetime.now(),
                     department=department

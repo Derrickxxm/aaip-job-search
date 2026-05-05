@@ -83,6 +83,10 @@ class JobLinkValidator:
     def _has_inactive_body(page_text: str) -> bool:
         """正文中出现明确职位失效信号"""
         inactive_patterns = [
+            'job not found',
+            'position not found',
+            'the job you requested was not found',
+            'the position you requested was not found',
             'this job is no longer available',
             'this position is no longer available',
             'the job you are looking for is no longer available',
