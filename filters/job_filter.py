@@ -24,6 +24,11 @@ class JobFilter:
         self.engineering_anchor_keywords = [
             k.lower() for k in config.get('engineering_anchor_keywords', [])
         ]
+        self.target_title_keywords = [k.lower() for k in config.get('target_title_keywords', [])]
+        self.title_mismatch_keywords = [k.lower() for k in config.get('title_mismatch_keywords', [])]
+        self.generic_source_title_mismatch_keywords = [
+            k.lower() for k in config.get('generic_source_title_mismatch_keywords', [])
+        ]
         self.debug_enabled = config.get('debug', {}).get('enabled', False)
 
         # HTML实体解码映射
@@ -61,6 +66,14 @@ class JobFilter:
     def matches_tech_stack(self, job: Job) -> bool:
         """检查是否匹配目标技术/工程岗位"""
         title_clean, searchable_text = self._title_department_text(job)
+
+        # 泛平台（Indeed/Apify/Job Bank）噪音高，必须命中主攻标题词。
+        platform_clean = self._clean_text(job.platform or '')
+        if any(source in platform_clean for source in ['apify', 'indeed', 'jobbank', 'job bank']):
+            if self.target_title_keywords and not self._matches_any(title_clean, self.target_title_keywords):
+                if self.debug_enabled:
+                    logger.debug(f"Tech stack NOT matched: '{job.title}' (no target title keyword)")
+                return False
 
         # 强岗位词直接通过，避免 Software Developer 这类基础职位被级别词误杀。
         if self._matches_any(title_clean, self.strong_role_keywords):
@@ -148,8 +161,13 @@ class JobFilter:
     def should_exclude(self, job: Job) -> bool:
         """检查是否应该排除"""
         title_clean = self._clean_text(job.title)
+        platform_clean = self._clean_text(job.platform or '')
+        is_generic_source = any(source in platform_clean for source in ['apify', 'indeed', 'jobbank', 'job bank'])
         matched_keyword = None
-        for keyword in self.exclude_keywords:
+        keywords = self.exclude_keywords + self.title_mismatch_keywords
+        if is_generic_source:
+            keywords += self.generic_source_title_mismatch_keywords
+        for keyword in keywords:
             if self._matches_keyword(title_clean, keyword):
                 matched_keyword = keyword
                 break

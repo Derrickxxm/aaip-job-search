@@ -61,8 +61,6 @@ tech_keywords:
 # 强岗位词：标题命中即可进入IT主投池
 strong_role_keywords:
   - Software Developer
-  - Software Engineer
-  - Software Engineering
   - SWE
   - Sr SWE
   - Technology Developer
@@ -88,11 +86,10 @@ strong_role_keywords:
   - Software Development
   - Engineering Manager
   - Director, Software Development
-  - Data Architect
-  - AI Architect
   - Database Reliability Engineer
   - QA Automation
   - Automation Tester
+  - Digital Architect
 
 # 弱岗位词：必须同时命中工程锚点或目标领域，避免泛IT/销售/产品岗位混入
 weak_role_keywords:
@@ -209,9 +206,55 @@ level_keywords:
   - Lead
   - Principal
   - Director
-  - Architect
   - Manager
   - Intermediate
+
+# 主攻职位标题：泛平台职位必须命中这些，避免 Software Engineer/Architect 泛词乱进
+target_title_keywords:
+  - backend
+  - back end
+  - java
+  - spring
+  - platform
+  - devops
+  - site reliability
+  - sre
+  - data engineer
+  - full stack
+  - fullstack
+  - digital architect
+  - technology developer
+  - software developer
+
+# 标题错配词：这些更像你不主攻的方向，不进主投报告
+title_mismatch_keywords:
+  - solution architect
+  - solutions architect
+  - application architect
+  - security software engineer
+  - icloud security
+  - windows/desktop
+  - desktop applications
+  - geophysical
+  - seismic
+  - gis
+  - mobile
+  - ios
+  - android
+  - embedded
+  - firmware
+  - game developer
+  - data architect
+  - ai architect
+  - machine learning researcher
+  - applied scientist
+  - qa automation
+  - automation tester
+
+# 泛平台专用错配词：Indeed/Apify/Job Bank 噪音高，这些不进入主投报告。
+# 公司官网抓到的同名职位不受这里影响。
+generic_source_title_mismatch_keywords:
+  - senior full stack developer
 
 # 排除关键词
 exclude_keywords:
