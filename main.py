@@ -1,7 +1,9 @@
 """主程序入口"""
+import json
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
 from utils.config_loader import ConfigLoader
 from utils.logger import logger
@@ -10,6 +12,7 @@ from filters.job_filter import JobFilter
 from notification.local_storage import LocalStorageNotifier
 from utils.job_link_validator import JobLinkValidator
 from utils.job_ranker import JobRanker
+from models.job import Job
 from scrapers.greenhouse import GreenhouseScraper
 from scrapers.ashby import AshbyScraper
 from scrapers.custom import CustomScraper
@@ -78,6 +81,103 @@ def allow_playwright() -> bool:
 def skip_link_validation() -> bool:
     """是否跳过职位链接有效性校验"""
     return '--skip-link-validation' in sys.argv
+
+
+def parse_scraped_at(value: object) -> datetime:
+    """解析缓存职位的抓取时间，失败时用当前时间兜底"""
+    if isinstance(value, datetime):
+        return value
+    if isinstance(value, str) and value:
+        try:
+            return datetime.fromisoformat(value)
+        except ValueError:
+            logger.warning(f"Invalid scraped_at in cached job: {value}")
+    return datetime.now()
+
+
+def job_from_dict(data: dict, default_platform: str = 'apify') -> Job:
+    """把缓存JSON里的职位转换为Job对象"""
+    return Job(
+        title=str(data.get('title') or '').strip(),
+        company=str(data.get('company') or '').strip(),
+        location=str(data.get('location') or '').strip(),
+        url=str(data.get('url') or '').strip(),
+        platform=str(data.get('platform') or default_platform).strip() or default_platform,
+        scraped_at=parse_scraped_at(data.get('scraped_at')),
+        department=data.get('department'),
+        description=data.get('description'),
+    )
+
+
+def load_cached_jobs(config: dict, job_filter: JobFilter, storage: JobStorage, show_sent: bool) -> list[Job]:
+    """读取本地缓存职位，并用当前过滤规则重新筛选"""
+    cached_config = config.get('cached_jobs', {})
+    if not cached_config.get('enabled', False):
+        return []
+
+    cache_dir = Path(cached_config.get('directory', '')).expanduser()
+    pattern = cached_config.get('pattern', '*.json')
+    source_key = cached_config.get('source_key', 'raw_jobs')
+    default_platform = cached_config.get('default_platform', 'apify')
+
+    if not cache_dir.exists():
+        logger.warning(f"Cached jobs directory does not exist: {cache_dir}")
+        return []
+
+    files = sorted(cache_dir.glob(pattern), key=lambda path: path.stat().st_mtime, reverse=True)
+    if not files:
+        logger.info(f"No cached job files found in {cache_dir} with pattern {pattern}")
+        return []
+
+    cache_file = files[0]
+    try:
+        with open(cache_file, 'r', encoding='utf-8') as f:
+            payload = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        logger.error(f"Failed to load cached jobs from {cache_file}: {e}")
+        return []
+
+    raw_items = payload.get(source_key, [])
+    if not isinstance(raw_items, list):
+        logger.warning(f"Cached jobs source '{source_key}' is not a list in {cache_file}")
+        return []
+
+    matched_jobs = []
+    seen_urls = set()
+    for item in raw_items:
+        if not isinstance(item, dict):
+            continue
+
+        job = job_from_dict(item, default_platform=default_platform)
+        if not job.title or not job.url:
+            continue
+        if job.url in seen_urls:
+            continue
+        seen_urls.add(job.url)
+
+        if storage.is_recorded(job.url) and not show_sent:
+            logger.info(f"Skipping recorded cached job: {job.title}")
+            continue
+        if job_filter.is_match(job):
+            matched_jobs.append(job)
+            logger.info(f"✓ Matched cached: {job.title} @ {job.company}")
+        else:
+            logger.info(f"✗ Filtered cached: {job.title} @ {job.company}")
+
+    logger.info(f"Cached jobs loaded from {cache_file}: matched {len(matched_jobs)}/{len(raw_items)}")
+    return matched_jobs
+
+
+def dedupe_jobs_by_url(jobs: list[Job]) -> list[Job]:
+    """按URL去重，保留第一次出现的职位"""
+    deduped = []
+    seen_urls = set()
+    for job in jobs:
+        if job.url in seen_urls:
+            continue
+        seen_urls.add(job.url)
+        deduped.append(job)
+    return deduped
 
 
 def main():
@@ -260,6 +360,12 @@ def main():
 
             except Exception as e:
                 logger.error(f"Error processing {company_name}: {e}")
+
+    cached_jobs = load_cached_jobs(config, job_filter, storage, show_sent)
+    if cached_jobs:
+        all_new_jobs.extend(cached_jobs)
+
+    all_new_jobs = dedupe_jobs_by_url(all_new_jobs)
 
     # 4. 保存到本地MD文件
     if all_new_jobs:

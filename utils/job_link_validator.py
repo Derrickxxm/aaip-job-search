@@ -34,12 +34,17 @@ class JobLinkValidator:
             logger.warning(f"Link validation timeout, keeping job: {job.url}")
             return True
         except requests.exceptions.RequestException as e:
-            logger.warning(f"Link validation request failed, dropping job: {job.url} ({e})")
-            return False
+            logger.warning(f"Link validation request failed, keeping job for manual review: {job.url} ({e})")
+            return True
 
-        if response.status_code >= 400:
+        if response.status_code in (404, 410):
             logger.info(f"Inactive job link HTTP {response.status_code}: {job.url}")
             return False
+        if response.status_code >= 400:
+            logger.warning(
+                f"Link validation HTTP {response.status_code}, keeping job for manual review: {job.url}"
+            )
+            return True
 
         page_text = self._clean_text(response.text)
         page_title = self._extract_title(page_text)

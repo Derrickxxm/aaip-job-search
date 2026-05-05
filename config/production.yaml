@@ -6,6 +6,14 @@ schedule:
 storage:
   vault_dir: /Users/xxm/projects/QuantEngine_markdown_file/12-找工作  # MD文件存储目录
 
+# 已花额度抓到的职位缓存。重新生成报告时只读本地JSON，不再次调用Apify。
+cached_jobs:
+  enabled: true
+  directory: /Users/xxm/projects/QuantEngine_markdown_file/12-找工作/apify_jobs
+  pattern: "*_apify_indeed_jobs.json"
+  source_key: raw_jobs
+  default_platform: apify
+
 # 调试模式（临时开启，测试完改为false）
 debug:
   enabled: true  # 开启详细调试输出
@@ -319,6 +327,57 @@ jobbank_search_queries:
     location: Alberta
   - desc: Alberta data engineer
     term: data engineer
+    location: Alberta
+  - desc: Calgary Java developer
+    term: Java developer
+    location: Calgary, AB
+  - desc: Edmonton Java developer
+    term: Java developer
+    location: Edmonton, AB
+  - desc: Calgary backend developer
+    term: backend developer
+    location: Calgary, AB
+  - desc: Edmonton backend developer
+    term: backend developer
+    location: Edmonton, AB
+  - desc: Calgary platform engineer
+    term: platform engineer
+    location: Calgary, AB
+  - desc: Edmonton platform engineer
+    term: platform engineer
+    location: Edmonton, AB
+  - desc: Calgary DevOps engineer
+    term: DevOps engineer
+    location: Calgary, AB
+  - desc: Edmonton DevOps engineer
+    term: DevOps engineer
+    location: Edmonton, AB
+  - desc: Calgary cloud engineer
+    term: cloud engineer
+    location: Calgary, AB
+  - desc: Edmonton cloud engineer
+    term: cloud engineer
+    location: Edmonton, AB
+  - desc: Alberta site reliability engineer
+    term: site reliability engineer
+    location: Alberta
+  - desc: Alberta full stack developer
+    term: full stack developer
+    location: Alberta
+  - desc: Alberta senior developer
+    term: senior developer
+    location: Alberta
+  - desc: Alberta .NET developer
+    term: .NET developer
+    location: Alberta
+  - desc: Alberta Python developer
+    term: Python developer
+    location: Alberta
+  - desc: Alberta AI engineer
+    term: AI engineer
+    location: Alberta
+  - desc: Alberta digital architect
+    term: digital architect
     location: Alberta
 
 # 报告写入前校验职位链接，过滤明确下架/Not Found 的职位
