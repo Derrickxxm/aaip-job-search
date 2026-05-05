@@ -10,43 +10,24 @@ storage:
 debug:
   enabled: true  # 开启详细调试输出
 
-# 地点过滤（扩展到全加拿大工签友好地区）
+# 地点过滤（阿省主投；非阿省现场/混合职位不进入IT主报告）
 location_filter:
   # AB省 (Alberta) - 核心目标
   - Calgary, Alberta
   - Calgary, AB
+  - Calgary
   - Edmonton, Alberta
   - Edmonton, AB
-  - Alberta, Canada
-  # ON省 (Ontario)
-  - Toronto, Ontario
-  - Toronto, ON
-  - Ottawa, Ontario
-  - Ottawa, ON
-  - Ontario, Canada
-  - Mississauga
-  - Waterloo
-  - Kitchener
-  # BC省 (British Columbia)
-  - Vancouver, British Columbia
-  - Vancouver, BC
-  - Victoria, British Columbia
-  - Victoria, BC
-  - British Columbia, Canada
-  # QC省 (Quebec)
-  - Montreal, Quebec
-  - Montreal, QC
-  - Quebec, Canada
-  # AB省城市简写（兼容 Lever/Ashby 等非标准格式）
   - Edmonton
-  - Calgary
+  - Alberta, Canada
+  - Alberta
   - Sherwood Park
-  # 远程和通用
+  - AB, Canada
+  # 远程：只接受明确Canada Remote，且不能是外省城市列表伪装成Remote
   - Canada, Remote
   - Remote, Canada
   - Remote Canada
-  - Canada
-  - Unknown  # 临时：允许未知地点
+  - Canada Remote
 
 # 技术栈关键词（只放精准技术/领域词，不放 Engineer/Developer/Technical/Solutions 这类泛词）
 tech_keywords:

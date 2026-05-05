@@ -95,9 +95,48 @@ class JobFilter:
     def matches_location(self, job: Job) -> bool:
         """检查是否匹配地点"""
         location_clean = self._clean_text(job.location)
-        # 如果是Remote Canada，接受
-        if 'remote' in location_clean and 'canada' in location_clean:
+
+        alberta_terms = [
+            'calgary',
+            'edmonton',
+            'alberta',
+            'sherwood park',
+            ', ab',
+            ' ab,',
+            ' ab ',
+        ]
+        non_alberta_city_terms = [
+            'vancouver',
+            'victoria',
+            'toronto',
+            'mississauga',
+            'waterloo',
+            'kitchener',
+            'ottawa',
+            'montreal',
+            'winnipeg',
+            'halifax',
+            'oakville',
+        ]
+
+        has_alberta_location = any(term in location_clean for term in alberta_terms)
+        has_non_alberta_city = any(term in location_clean for term in non_alberta_city_terms)
+
+        # 外省城市列表不进入IT主报告。即使同时列出Calgary/Edmonton，也先不放主投清单，避免误导。
+        if has_non_alberta_city:
+            if self.debug_enabled:
+                logger.debug(f"Location NOT matched: '{job.location}' (contains non-Alberta city)")
+            return False
+
+        # 阿省城市/省份明确命中，直接接受。
+        if has_alberta_location:
             return True
+
+        # Canada Remote可以接受，但不能是外省城市列表加一个Canada Remote的泛地点。
+        is_canada_remote = 'remote' in location_clean and 'canada' in location_clean
+        if is_canada_remote and not has_non_alberta_city:
+            return True
+
         # 否则检查是否在Alberta
         matched = any(loc in location_clean for loc in self.location_filter)
         if not matched and self.debug_enabled:

@@ -9,6 +9,7 @@ from storage.job_storage import JobStorage
 from filters.job_filter import JobFilter
 from notification.local_storage import LocalStorageNotifier
 from utils.job_link_validator import JobLinkValidator
+from utils.job_ranker import JobRanker
 from scrapers.greenhouse import GreenhouseScraper
 from scrapers.ashby import AshbyScraper
 from scrapers.custom import CustomScraper
@@ -262,6 +263,8 @@ def main():
 
     # 4. 保存到本地MD文件
     if all_new_jobs:
+        all_new_jobs = JobRanker.sort_for_alberta_priority(all_new_jobs)
+
         validation_config = config.get('link_validation', {})
         validation_enabled = validation_config.get('enabled', True) and not link_validation_skipped
         if validation_enabled:
@@ -271,6 +274,7 @@ def main():
             )
             before_count = len(all_new_jobs)
             all_new_jobs = validator.filter_active_jobs(all_new_jobs)
+            all_new_jobs = JobRanker.sort_for_alberta_priority(all_new_jobs)
             logger.info(f"Link validation kept {len(all_new_jobs)}/{before_count} matching jobs")
 
         if not all_new_jobs:
