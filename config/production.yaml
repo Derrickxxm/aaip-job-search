@@ -261,6 +261,11 @@ request:
   timeout: 10
   user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 
+# 报告写入前校验职位链接，过滤明确下架/Not Found 的职位
+link_validation:
+  enabled: true
+  timeout: 8
+
 # Gmail 邮件抓取配置
 gmail:
   credentials_path: config/gmail_credentials.json

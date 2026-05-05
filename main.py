@@ -8,6 +8,7 @@ from utils.logger import logger
 from storage.job_storage import JobStorage
 from filters.job_filter import JobFilter
 from notification.local_storage import LocalStorageNotifier
+from utils.job_link_validator import JobLinkValidator
 from scrapers.greenhouse import GreenhouseScraper
 from scrapers.ashby import AshbyScraper
 from scrapers.custom import CustomScraper
@@ -73,6 +74,11 @@ def allow_playwright() -> bool:
     return '--allow-playwright' in sys.argv
 
 
+def skip_link_validation() -> bool:
+    """是否跳过职位链接有效性校验"""
+    return '--skip-link-validation' in sys.argv
+
+
 def main():
     """主函数"""
     profile = get_profile()
@@ -82,6 +88,7 @@ def main():
     skip_recording = no_mark_recorded()
     replace_report = overwrite_report()
     browser_enabled = allow_playwright()
+    link_validation_skipped = skip_link_validation()
     if not browser_enabled:
         os.environ['DISABLE_PLAYWRIGHT'] = '1'
 
@@ -90,7 +97,7 @@ def main():
         f"Starting AAIP Job Aggregator "
         f"(profile: {profile}, dry_run: {dry_run}, include_sent: {show_sent}, "
         f"no_mark_recorded: {skip_recording}, overwrite_report: {replace_report}, "
-        f"allow_playwright: {browser_enabled})"
+        f"allow_playwright: {browser_enabled}, skip_link_validation: {link_validation_skipped})"
     )
     logger.info("=" * 60)
 
@@ -255,6 +262,21 @@ def main():
 
     # 4. 保存到本地MD文件
     if all_new_jobs:
+        validation_config = config.get('link_validation', {})
+        validation_enabled = validation_config.get('enabled', True) and not link_validation_skipped
+        if validation_enabled:
+            validator = JobLinkValidator(
+                timeout=validation_config.get('timeout', 8),
+                user_agent=request_user_agent
+            )
+            before_count = len(all_new_jobs)
+            all_new_jobs = validator.filter_active_jobs(all_new_jobs)
+            logger.info(f"Link validation kept {len(all_new_jobs)}/{before_count} matching jobs")
+
+        if not all_new_jobs:
+            logger.info("No matching jobs left after link validation")
+            return
+
         if show_sent:
             logger.info(f"Found {len(all_new_jobs)} matching jobs including recorded jobs")
         else:
