@@ -379,6 +379,48 @@ jobbank_search_queries:
   - desc: Alberta digital architect
     term: digital architect
     location: Alberta
+  - desc: Alberta software architect
+    term: software architect
+    location: Alberta
+  - desc: Alberta solution architect
+    term: solution architect
+    location: Alberta
+  - desc: Alberta engineering manager
+    term: engineering manager
+    location: Alberta
+  - desc: Alberta technical lead
+    term: technical lead
+    location: Alberta
+  - desc: Alberta API developer
+    term: API developer
+    location: Alberta
+  - desc: Alberta integration developer
+    term: integration developer
+    location: Alberta
+  - desc: Alberta database developer
+    term: database developer
+    location: Alberta
+  - desc: Alberta machine learning engineer
+    term: machine learning engineer
+    location: Alberta
+  - desc: Alberta automation engineer
+    term: automation engineer
+    location: Alberta
+  - desc: Alberta infrastructure engineer
+    term: infrastructure engineer
+    location: Alberta
+  - desc: Calgary full stack developer
+    term: full stack developer
+    location: Calgary, AB
+  - desc: Edmonton full stack developer
+    term: full stack developer
+    location: Edmonton, AB
+  - desc: Calgary software architect
+    term: software architect
+    location: Calgary, AB
+  - desc: Edmonton software architect
+    term: software architect
+    location: Edmonton, AB
 
 # 报告写入前校验职位链接，过滤明确下架/Not Found 的职位
 link_validation:

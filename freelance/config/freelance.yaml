@@ -13,10 +13,71 @@ platforms:
       - https://weworkremotely.com/categories/remote-back-end-programming-jobs.rss
       - https://weworkremotely.com/categories/remote-devops-sysadmin-jobs.rss
   freelancer:
-    enabled: false
+    enabled: true
     url: https://www.freelancer.com/api/projects/0.1/projects/active/
+    limit: 80
+    queries:
+      - python automation
+      - backend api
+      - fastapi
+      - java spring
+      - devops aws
+      - llm automation
+      - trading bot
+      - data pipeline
+      - web scraping
+      - react node
   contra:
     enabled: false
+  remotive:
+    enabled: true
+    url: https://remotive.com/api/remote-jobs
+    categories:
+      - software-dev
+      - devops
+      - data
+  arbeitnow:
+    enabled: true
+    url: https://www.arbeitnow.com/api/job-board-api
+    pages: 2
+  rss:
+    enabled: true
+    feeds:
+      - name: reddit_forhire
+        url: https://www.reddit.com/r/forhire/.rss
+      - name: reddit_freelance_forhire
+        url: https://www.reddit.com/r/freelance_forhire/.rss
+      - name: reddit_jobbit
+        url: https://www.reddit.com/r/jobbit/.rss
+      - name: hnrss_jobs
+        url: https://hnrss.org/jobs
+
+manual_sources:
+  # 这些平台没有稳定公开 API，先作为每日人工检索入口，不消耗 Apify 额度。
+  - name: Upwork
+    url: https://www.upwork.com/nx/search/jobs/?q=python%20automation%20backend%20api%20llm
+  - name: Contra
+    url: https://contra.com/opportunities
+  - name: Fiverr Pro
+    url: https://www.fiverr.com/
+  - name: PeoplePerHour
+    url: https://www.peopleperhour.com/freelance-jobs
+  - name: Guru
+    url: https://www.guru.com/d/jobs/
+  - name: Toptal
+    url: https://www.toptal.com/talent/apply
+  - name: Arc.dev
+    url: https://arc.dev/remote-jobs
+  - name: Gun.io
+    url: https://www.gun.io/freelance-developer-jobs
+  - name: Lemon.io
+    url: https://lemon.io/developers/
+  - name: Codementor
+    url: https://www.codementor.io/freelance-jobs
+  - name: LinkedIn Contract Search
+    url: https://www.linkedin.com/jobs/search/?keywords=contract%20backend%20developer%20remote
+  - name: Wellfound Remote Contract
+    url: https://wellfound.com/jobs
 
 filter:
   strong_keywords:

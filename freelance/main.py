@@ -17,7 +17,11 @@ from freelance.filters.hard_filter import HardFilter
 from freelance.filters.skill_matcher import SkillMatcher
 from freelance.notification.report import ReportNotifier
 from freelance.ranking.ranker import Ranker
+from freelance.scrapers.arbeitnow import ArbeitnowScraper
+from freelance.scrapers.freelancer import FreelancerScraper
+from freelance.scrapers.remotive import RemotiveScraper
 from freelance.scrapers.remoteok import RemoteOKScraper
+from freelance.scrapers.rss_sources import RSSSourceScraper
 from freelance.scrapers.weworkremotely import WeWorkRemotelyScraper
 from freelance.storage.project_storage import ProjectStorage
 from freelance.utils.logger import get_logger
@@ -53,6 +57,18 @@ def get_enabled_scrapers(config: dict):
 
     if platforms.get('weworkremotely', {}).get('enabled', False):
         scrapers.append(WeWorkRemotelyScraper(config))
+
+    if platforms.get('freelancer', {}).get('enabled', False):
+        scrapers.append(FreelancerScraper(config))
+
+    if platforms.get('remotive', {}).get('enabled', False):
+        scrapers.append(RemotiveScraper(config))
+
+    if platforms.get('arbeitnow', {}).get('enabled', False):
+        scrapers.append(ArbeitnowScraper(config))
+
+    if platforms.get('rss', {}).get('enabled', False):
+        scrapers.append(RSSSourceScraper(config))
 
     return scrapers
 

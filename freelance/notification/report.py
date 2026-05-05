@@ -126,7 +126,7 @@ class ReportNotifier:
             lines.append("---")
 
         lines.append("")
-        lines.append("*数据来源: [Remote OK](https://remoteok.com), [WeWorkRemotely](https://weworkremotely.com)*")
+        lines.append(f"*数据来源: {', '.join(sorted(platforms)) if platforms else '无匹配结果'}*")
         lines.append("*由 Freelance Project Scanner 自动生成*")
 
         return '\n'.join(lines)
