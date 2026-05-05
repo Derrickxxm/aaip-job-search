@@ -21,6 +21,8 @@
       "risk_score": 1,
       "tech_match": 3,
       "notes": "Ruby on Rails为主，但有后端通用岗位",
+      "lmia_evidence_level": "alberta_recent_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：Calgary 多次 IT / Global Talent Stream 记录，最新看到 2025 Q4 NOC 21232",
       "status": "active"
     },
     {
@@ -32,6 +34,8 @@
       "risk_score": 2,
       "tech_match": 5,
       "notes": "Java + Kotlin + Python，完美匹配",
+      "lmia_evidence_level": "alberta_historical_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：Calgary 2019-2022 软件/IT记录很强；2022 Q4后公开表主要为 Winnipeg",
       "status": "active"
     },
     {
@@ -43,6 +47,8 @@
       "risk_score": 1,
       "tech_match": 5,
       "notes": "支付平台 + Java，完美匹配",
+      "lmia_evidence_level": "alberta_historical_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：Calgary 有 2019 Web developer 记录；后续更多为设计类职位",
       "status": "active"
     },
     {
@@ -54,6 +60,8 @@
       "risk_score": 2,
       "tech_match": 4,
       "notes": "Python + Java + 数据平台",
+      "lmia_evidence_level": "alberta_recent_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：Calgary 记录，含 2025 Q4 NOC 21222 Information systems specialists",
       "status": "active"
     },
     {
@@ -65,6 +73,8 @@
       "risk_score": 2,
       "tech_match": 3,
       "notes": "偏机器人/嵌入式，有后端岗。目前无开放职位",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "官方 Positive LMIA 表暂未确认匹配记录；只按岗位匹配度投递",
       "status": "active"
     },
     {
@@ -76,6 +86,8 @@
       "risk_score": 1,
       "tech_match": 3,
       "notes": "Ruby on Rails为主，后端通用。Cloudflare高保护，暂时使用stealth模式尝试抓取",
+      "lmia_evidence_level": "alberta_historical_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：OctopusApp Inc. Edmonton 2018-2020 NOC 2174 记录；记录偏旧",
       "status": "active"
     }
   ],
@@ -91,7 +103,8 @@
       "tech_match": 5,
       "location_keywords": ["Calgary"],
       "notes": "FinTech，统一财富管理平台。TypeScript/Node.js/MongoDB",
-      "immigration_notes": "2025 Q1 确认有LMIA记录（NOC 21231 Software Engineers）",
+      "lmia_evidence_level": "alberta_recent_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：2025 Q1 Calgary NOC 21231 Software engineers and designers，Global Talent Stream",
       "status": "active"
     },
     {
@@ -104,7 +117,8 @@
       "tech_match": 4,
       "location_keywords": ["Calgary"],
       "notes": "数字产品开发公司，Python/AWS后端、Angular/React前端",
-      "immigration_notes": "Alberta本地科技公司，有LMIA记录",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "官方 Positive LMIA 表暂未确认匹配记录；保留为 Calgary 技术公司目标，不作为 LMIA 已验证公司",
       "status": "active"
     },
     {
@@ -117,7 +131,8 @@
       "tech_match": 4,
       "location_keywords": ["Calgary"],
       "notes": "企业LMS SaaS平台，远程优先，全球团队",
-      "immigration_notes": "Calgary大型科技雇主，全球招聘，工签友好",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "官方 Positive LMIA 表暂未确认匹配记录；保留为 Calgary SaaS 目标",
       "status": "active"
     },
     {
@@ -130,7 +145,8 @@
       "tech_match": 4,
       "location_keywords": ["Calgary"],
       "notes": "FinTech，工资预支平台。Ruby on Rails/AWS/DevOps",
-      "immigration_notes": "Calgary FinTech公司，有LMIA记录",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "官方 Positive LMIA 表暂未确认匹配记录；不能继续标为已确认 LMIA 公司",
       "status": "active"
     },
     {
@@ -143,7 +159,8 @@
       "tech_match": 4,
       "location_keywords": ["Calgary"],
       "notes": "法律实体管理SaaS，$42M Series B。云原生全栈开发",
-      "immigration_notes": "Calgary SaaS公司，全球分布式招聘，工签友好",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "官方 Positive LMIA 表暂未确认匹配记录；保留为 Calgary SaaS 目标",
       "status": "active"
     },
     {
@@ -156,7 +173,8 @@
       "tech_match": 5,
       "location_keywords": ["Edmonton", "Calgary"],
       "notes": "应用AI/ML公司，为能源/制造/医疗/金融构建ML解决方案",
-      "immigration_notes": "Edmonton本地AI公司，Global Talent Stream友好",
+      "lmia_evidence_level": "alberta_historical_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：Edmonton 2019 Q4 / 2020 Q1 NOC 2172，含 Global Talent Stream；记录偏旧",
       "status": "active"
     },
     {
@@ -169,7 +187,8 @@
       "tech_match": 3,
       "location_keywords": ["Sherwood Park", "Edmonton"],
       "notes": "EHS合规和学习管理SaaS。ColdFusion/Web开发，$95K-$100K",
-      "immigration_notes": "2024 Q4 确认有LMIA记录（NOC 21232 Software Developers）",
+      "lmia_evidence_level": "alberta_recent_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认：2024 Q4 Sherwood Park NOC 21232 Software developers and programmers，Global Talent Stream",
       "status": "active"
     },
     {
@@ -182,6 +201,8 @@
       "tech_match": 4,
       "location_keywords": ["Calgary", "Edmonton", "Alberta", "Canada"],
       "notes": "Platform / AI / Enterprise Software。使用自定义招聘系统（Lever嵌入）",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "当前别名 IBM Canada 未在官方 Positive LMIA 表确认匹配；需 legal name 复核",
       "aaip_notes": "需要确认 hiring entity 是 IBM Canada，避免外包项目",
       "implementation_status": "需要开发自定义爬虫（4-5小时）",
       "status": "pending"
@@ -196,6 +217,8 @@
       "tech_match": 4,
       "location_keywords": ["Calgary", "Alberta"],
       "notes": "Platform / Networking。使用自定义招聘系统（Lever嵌入）",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表能确认 Cisco Systems Canada 历史记录，但非阿省；需避免 Cisco Concrete / Francisco 等误匹配",
       "aaip_notes": "偏平台/系统工程更优，避免纯网络硬件岗位",
       "implementation_status": "需要开发自定义爬虫（4-5小时）",
       "status": "pending"
@@ -210,6 +233,8 @@
       "tech_match": 5,
       "location_keywords": ["Calgary"],
       "notes": "FinTech / Platform。使用自定义招聘系统（Lever嵌入）",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Morgan Stanley Canada 技术/GTS记录，主要在 Montreal",
       "aaip_notes": "确认雇主主体是 Morgan Stanley Canada。完美匹配支付/金融经验",
       "implementation_status": "需要开发自定义爬虫（4-5小时）",
       "status": "pending"
@@ -224,6 +249,8 @@
       "tech_match": 4,
       "location_keywords": ["Calgary"],
       "notes": "Energy SaaS / Data Platform。Calgary 总部，使用Jobvite平台",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "官方 Positive LMIA 表暂未确认匹配记录；按 Calgary Energy SaaS 和岗位匹配度保留",
       "aaip_notes": "SaaS 本质，省政府友好度高。最推荐的P1公司",
       "implementation_status": "已实现Jobvite爬虫",
       "status": "active"
@@ -254,7 +281,8 @@
       "tech_match": 5,
       "location_keywords": ["Toronto", "Ontario", "Ottawa", "Montreal", "Remote Canada"],
       "notes": "加拿大最大独角兽，Ruby/Go/React。使用自定义招聘系统（需Playwright）",
-      "immigration_notes": "大量LMIA记录，对新移民非常友好",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认大量记录，主要 Ontario / BC；作为非阿省补充",
       "implementation_status": "已完成自定义爬虫",
       "status": "active"
     },
@@ -268,7 +296,8 @@
       "tech_match": 5,
       "location_keywords": ["Toronto", "Ontario", "Remote Canada"],
       "notes": "FinTech独角兽，Scala/Kotlin/Python。已确认使用Lever",
-      "immigration_notes": "金融科技领军企业，工签支持良好",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Toronto 记录，含 2024 Q2 NOC 21232；作为非阿省补充",
       "status": "active"
     },
     {
@@ -281,7 +310,8 @@
       "tech_match": 4,
       "location_keywords": ["Vancouver", "British Columbia", "Remote Canada"],
       "notes": "社交媒体管理平台，Java/Python/React。已确认使用Greenhouse embed",
-      "immigration_notes": "温哥华老牌SaaS公司，有LMIA记录",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Vancouver 多次软件/IT记录，含 2025 Q1/Q3；非阿省补充",
       "status": "active"
     },
     {
@@ -294,7 +324,8 @@
       "tech_match": 4,
       "location_keywords": ["Kitchener", "Toronto", "Vancouver", "Canada Remote"],
       "notes": "加拿大教育科技 SaaS，工程/平台岗位较多",
-      "immigration_notes": "加拿大成熟科技雇主，适合远程/多城市投递",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 D2L Corporation Ontario 记录；需过滤 2and2logistics 等误匹配",
       "status": "active"
     },
     {
@@ -307,7 +338,8 @@
       "tech_match": 4,
       "location_keywords": ["Oakville", "Toronto", "Waterloo", "Ontario"],
       "notes": "车联网/数据平台公司，软件、云、安全、解决方案岗位多",
-      "immigration_notes": "加拿大规模化科技公司，技术岗位丰富",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Oakville 记录，含 2025 Q3/Q4 软件和 IT 管理；非阿省补充",
       "status": "active"
     },
     {
@@ -320,7 +352,8 @@
       "tech_match": 4,
       "location_keywords": ["Remote Canada", "Toronto", "Ontario"],
       "notes": "加拿大医疗 SaaS，AI/平台/软件工程岗位多",
-      "immigration_notes": "远程加拿大岗位较多，和医疗/护理家庭背景也有叙事优势",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 PointClickCare Technologies Ontario 少量记录；非阿省补充",
       "status": "active"
     },
     {
@@ -333,7 +366,8 @@
       "tech_match": 4,
       "location_keywords": ["Toronto", "Canada"],
       "notes": "加拿大 FinTech，平台、API、支付、账务方向和过往经验贴近",
-      "immigration_notes": "加拿大本土 FinTech，适合作为支付/金融技术方向目标",
+      "lmia_evidence_level": "unverified",
+      "immigration_notes": "当前命中多为 FLO / FLOATEL，不等于 Float Financial；暂不作为 LMIA 已验证公司",
       "status": "active"
     },
     {
@@ -346,7 +380,8 @@
       "tech_match": 3,
       "location_keywords": ["Canada", "Remote"],
       "notes": "区块链基础设施公司，职位少但技术匹配度高",
-      "immigration_notes": "远程优先，作为补充来源",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Toronto 技术/GTS记录；非阿省补充",
       "status": "active"
     },
     {
@@ -359,7 +394,8 @@
       "tech_match": 3,
       "location_keywords": ["Toronto", "Canada"],
       "notes": "加拿大内容平台，工程岗位不稳定但可作为补充来源",
-      "immigration_notes": "加拿大科技品牌，适合补充监控",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Toronto 记录，含 2025 Q4 NOC 21231；非阿省补充",
       "status": "active"
     },
     {
@@ -372,7 +408,8 @@
       "tech_match": 5,
       "location_keywords": ["Vancouver", "Toronto", "Montreal", "Canada"],
       "notes": "FAANG，Java/Python/C++。使用Amazon自建招聘系统",
-      "immigration_notes": "全球顶级公司，工签支持完善但竞争激烈",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认大量记录，主要 Vancouver / Toronto；非阿省补充，竞争高",
       "implementation_status": "需要开发Amazon自定义爬虫",
       "status": "pending"
     },
@@ -386,7 +423,8 @@
       "tech_match": 3,
       "location_keywords": ["Montreal", "Quebec", "Toronto"],
       "notes": "游戏巨头，C++/Python。使用Algolia搜索 + 自定义系统",
-      "immigration_notes": "魁北克最大游戏公司，大量移民支持",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认大量记录，主要 Montreal / Toronto / Halifax；非阿省补充",
       "implementation_status": "需要开发自定义爬虫（Algolia API）",
       "status": "pending"
     },
@@ -400,7 +438,8 @@
       "tech_match": 4,
       "location_keywords": ["Montreal", "Quebec", "Toronto", "Remote Canada"],
       "notes": "POS/电商SaaS，Go/Java/Python。使用自定义招聘系统",
-      "immigration_notes": "蒙特利尔上市公司，工签友好",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Montreal / Toronto 记录；非阿省补充",
       "implementation_status": "需要开发自定义爬虫",
       "status": "pending"
     }
@@ -417,7 +456,8 @@
       "tech_match": 4,
       "location_keywords": ["Toronto", "Calgary", "Vancouver", "Canada"],
       "notes": "加拿大最大银行，Java/Python/云平台。使用Phenom People",
-      "immigration_notes": "五大银行之一，大量技术岗位，工签支持完善",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Royal Bank of Canada 技术记录，主要 Toronto；需排除 Bank of Canada 误匹配",
       "implementation_status": "需要开发Phenom People爬虫",
       "status": "pending"
     },
@@ -431,7 +471,8 @@
       "tech_match": 4,
       "location_keywords": ["Toronto", "Calgary", "Vancouver", "Canada"],
       "notes": "五大银行，Java/Python/.NET。使用Workday",
-      "immigration_notes": "稳定大银行，工签友好",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 TD Bank Group 历史记录，但当前技术 LMIA 证据较弱；非阿省补充",
       "implementation_status": "需要开发Workday爬虫",
       "status": "pending"
     },
@@ -445,7 +486,8 @@
       "tech_match": 4,
       "location_keywords": ["Toronto", "Calgary", "Montreal", "Canada"],
       "notes": "五大银行，Java/Python/云平台。使用SAP SuccessFactors",
-      "immigration_notes": "国际化银行，技术部门庞大",
+      "lmia_evidence_level": "canada_non_alberta_confirmed",
+      "immigration_notes": "官方 Positive LMIA 表确认 Scotiabank / Bank of Nova Scotia 技术记录，主要 Toronto；需排除省名 Nova Scotia 误匹配",
       "implementation_status": "需要开发SuccessFactors爬虫",
       "status": "pending"
     }
