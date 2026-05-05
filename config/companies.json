@@ -232,6 +232,19 @@
 
   "p2_companies": [
     {
+      "id": "jobbank_tech_alberta",
+      "name": "Job Bank Canada - Alberta Tech Search",
+      "platform": "jobbank",
+      "careers_url": "https://www.jobbank.gc.ca/jobsearch/jobsearch",
+      "tier": "P2",
+      "risk_score": 2,
+      "tech_match": 4,
+      "location_keywords": ["Alberta", "Calgary", "Edmonton"],
+      "notes": "加拿大政府Job Bank，按阿省IT NOC和关键词补充抓取当前职位，不依赖手工公司池",
+      "immigration_notes": "Job Bank职位需逐条确认雇主真实性、LMIA/工签态度和是否为外包中介",
+      "status": "active"
+    },
+    {
       "id": "shopify",
       "name": "Shopify",
       "platform": "shopify",

@@ -242,6 +242,42 @@ request:
   timeout: 10
   user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 
+# Job Bank 阿省 IT 全量补充搜索
+jobbank_search_queries:
+  - desc: Alberta software NOC
+    fn21: ["21231", "21232", "21230", "21222"]
+    location: Alberta
+  - desc: Edmonton software NOC
+    fn21: ["21231", "21232", "21230", "21222"]
+    location: Edmonton, AB
+  - desc: Calgary software NOC
+    fn21: ["21231", "21232", "21230", "21222"]
+    location: Calgary, AB
+  - desc: Alberta software developer
+    term: software developer
+    location: Alberta
+  - desc: Alberta software engineer
+    term: software engineer
+    location: Alberta
+  - desc: Alberta backend developer
+    term: backend developer
+    location: Alberta
+  - desc: Alberta Java developer
+    term: Java developer
+    location: Alberta
+  - desc: Alberta DevOps engineer
+    term: DevOps engineer
+    location: Alberta
+  - desc: Alberta cloud engineer
+    term: cloud engineer
+    location: Alberta
+  - desc: Alberta platform engineer
+    term: platform engineer
+    location: Alberta
+  - desc: Alberta data engineer
+    term: data engineer
+    location: Alberta
+
 # 报告写入前校验职位链接，过滤明确下架/Not Found 的职位
 link_validation:
   enabled: true

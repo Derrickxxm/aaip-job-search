@@ -104,6 +104,8 @@ class JobFilter:
             ', ab',
             ' ab,',
             ' ab ',
+            '(ab)',
+            '(alberta)',
         ]
         non_alberta_city_terms = [
             'vancouver',

@@ -62,13 +62,14 @@ class JobBankScraper(BaseScraper):
     def __init__(self, company_id, company_name, url, timeout=15, user_agent=None, config=None):
         super().__init__(company_id, company_name, url, timeout, user_agent)
         self.config = config or {}
+        self.search_queries = self._load_search_queries()
         self.seen_urls = set()  # 本次运行内去重
 
     def fetch_jobs(self) -> List[Job]:
         """抓取所有搜索配置的职位"""
         all_jobs = []
 
-        for query_config, desc in self.SEARCH_QUERIES:
+        for query_config, desc in self.search_queries:
             try:
                 jobs = self._search_jobs(query_config)
                 new_count = 0
@@ -83,6 +84,31 @@ class JobBankScraper(BaseScraper):
 
         logger.info(f"JobBank total: {len(all_jobs)} unique jobs")
         return all_jobs
+
+    def _load_search_queries(self) -> list[tuple[dict, str]]:
+        """从配置加载搜索条件；未配置时使用护理默认搜索"""
+        configured_queries = self.config.get('jobbank_search_queries', [])
+        if not configured_queries:
+            return self.SEARCH_QUERIES
+
+        queries = []
+        for query in configured_queries:
+            if not isinstance(query, dict):
+                continue
+
+            desc = query.get('desc', 'JobBank configured search')
+            query_config = {}
+            if query.get('fn21'):
+                query_config['fn21'] = query['fn21']
+            if query.get('term'):
+                query_config['term'] = query['term']
+            if query.get('location'):
+                query_config['location'] = query['location']
+
+            if query_config.get('location') and (query_config.get('fn21') or query_config.get('term')):
+                queries.append((query_config, desc))
+
+        return queries or self.SEARCH_QUERIES
 
     def _search_jobs(self, query_config: dict, max_pages: int = 5) -> List[Job]:
         """搜索一个配置组合"""
